@@ -18,7 +18,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#052E16]/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-5 sm:px-8">
+      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-3 sm:px-8 sm:py-5">
         <a href="#top" aria-label="Safe Bite, ir al inicio">
           <SafeBiteLogo tone="dark" />
         </a>
@@ -48,7 +48,7 @@ export function Navbar() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={menuOpen}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 text-white md:hidden"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/15 text-white md:hidden"
           >
             {menuOpen ? (
               <X strokeWidth={2} className="h-5 w-5" />

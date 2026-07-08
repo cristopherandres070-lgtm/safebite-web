@@ -49,7 +49,7 @@ export function DecisionSystem() {
             return (
               <MotionCard
                 key={status}
-                className="hover-lift relative flex flex-col items-center gap-3 overflow-hidden rounded-[2rem] border p-10 text-center backdrop-blur-sm"
+                className="hover-lift relative flex flex-col items-center gap-3 overflow-hidden rounded-[2rem] border p-6 text-center backdrop-blur-sm sm:p-10"
                 style={{
                   borderColor: `${meta.border}33`,
                   backgroundColor: "rgba(255,255,255,0.03)",

@@ -29,7 +29,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-24"
+      className="relative overflow-hidden pt-6 sm:pt-16 lg:pt-24"
       style={{
         background: "linear-gradient(160deg, #052E16 0%, #0B3D24 100%)",
       }}
@@ -42,7 +42,7 @@ export function Hero() {
         initial="hidden"
         animate="visible"
         variants={container}
-        className="relative mx-auto grid max-w-[1400px] gap-12 px-5 pb-20 pt-6 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-10 lg:pb-28 lg:pt-10"
+        className="relative mx-auto grid max-w-[1400px] gap-8 px-5 pb-12 pt-6 sm:gap-12 sm:px-8 sm:pb-20 lg:grid-cols-2 lg:items-center lg:gap-10 lg:pb-28 lg:pt-10"
       >
         <div className="text-center lg:text-left">
           <motion.span
@@ -105,9 +105,9 @@ export function Hero() {
 
         <motion.div
           variants={item}
-          className="relative mx-auto flex h-[400px] w-full max-w-md items-center justify-center sm:h-[460px] lg:h-[540px] lg:max-w-none"
+          className="relative mx-auto flex h-auto w-full max-w-[260px] items-center justify-center py-4 sm:h-[460px] sm:max-w-md sm:py-0 lg:h-[540px] lg:max-w-none"
         >
-          <div className="pointer-events-none absolute h-72 w-72 rounded-full bg-[#22C55E]/20 blur-[80px] sm:h-96 sm:w-96" />
+          <div className="pointer-events-none absolute h-48 w-48 rounded-full bg-[#22C55E]/20 blur-[80px] sm:h-72 sm:w-72 lg:h-96 lg:w-96" />
 
           <motion.div
             animate={{ y: [0, -12, 0] }}

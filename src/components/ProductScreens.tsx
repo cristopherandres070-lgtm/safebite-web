@@ -5,6 +5,9 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import { FeatureIcon } from "./icons";
 import { PhoneScannerMockup } from "./brand/PhoneScannerMockup";
+import { AllergenChip } from "./brand/AllergenChip";
+import { AllergenToggleRow } from "./brand/AllergenToggleRow";
+import { MockupResultCard } from "./brand/MockupResultCard";
 
 const BLOCKS = [
   {
@@ -12,18 +15,57 @@ const BLOCKS = [
     variant: "restrictions" as const,
     title: "Perfil alimentario",
     desc: "Configura alergias, intolerancias y nivel de sensibilidad.",
+    mobileVisual: (
+      <div className="flex flex-wrap gap-2">
+        <AllergenChip allergenKey="gluten" active />
+        <AllergenChip allergenKey="lactosa" active={false} />
+        <AllergenChip allergenKey="nueces" active={false} />
+      </div>
+    ),
   },
   {
     icon: History,
     variant: "history" as const,
     title: "Historial y favoritos",
     desc: "Guarda tus escaneos y revisa productos fácilmente.",
+    mobileVisual: (
+      <div className="flex flex-col gap-2.5">
+        <MockupResultCard
+          status="apto"
+          product="Pepsi Zero Azúcar"
+          brand="Pepsi"
+          source={{ type: "off", confidence: 92 }}
+          time="Hace 5 días"
+        />
+        <MockupResultCard
+          status="precaucion"
+          product="Barra de Cereal Integral"
+          brand="Vitalis"
+          allergen="Sin Gluten"
+          source={{ type: "ai", confidence: 41 }}
+          time="Hace 2 días"
+        />
+        <MockupResultCard
+          status="no_apto"
+          product="Galletas con Maní"
+          brand="Selección"
+          source={{ type: "ai", confidence: 88 }}
+          time="Hace 1 semana"
+        />
+      </div>
+    ),
   },
   {
     icon: UserRound,
     variant: "profile-full" as const,
     title: "Perfil completo",
     desc: "Gestiona tus alérgenos y tu nivel de sensibilidad cuando quieras.",
+    mobileVisual: (
+      <div className="divide-y divide-[#F1F5F9] rounded-xl border border-[#E2E8F0] bg-white px-4">
+        <AllergenToggleRow allergenKey="gluten" active />
+        <AllergenToggleRow allergenKey="lactosa" active={false} />
+      </div>
+    ),
   },
 ];
 
@@ -57,9 +99,25 @@ export function ProductScreens() {
             const reversed = i % 2 === 1;
             return (
               <Reveal key={block.title}>
+                {/* Mobile: compact, legible card — no full-size phone mockup */}
                 <div
                   className={cn(
-                    "grid grid-cols-1 items-center gap-10 rounded-[2rem] p-6 sm:p-10 lg:grid-cols-2 lg:gap-16 lg:p-16",
+                    "rounded-[1.5rem] p-6 md:hidden",
+                    i % 2 === 0 ? "bg-[#F7FAF7]" : "bg-white",
+                  )}
+                >
+                  <FeatureIcon icon={block.icon} className="h-12 w-12" />
+                  <p className="mt-4 text-xl font-extrabold text-[#0F172A]" style={{ letterSpacing: "-0.5px" }}>
+                    {block.title}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#64748B]">{block.desc}</p>
+                  <div className="mt-5">{block.mobileVisual}</div>
+                </div>
+
+                {/* Desktop / tablet: full phone mockup, alternating layout */}
+                <div
+                  className={cn(
+                    "hidden items-center gap-10 rounded-[2rem] p-10 md:grid lg:grid-cols-2 lg:gap-16 lg:p-16",
                     i % 2 === 0 ? "bg-[#F7FAF7]" : "bg-white",
                   )}
                 >

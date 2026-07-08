@@ -16,8 +16,8 @@ export function SafeBiteLogo({ className, tone = "dark", size = "md" }: SafeBite
       text: "text-xl",
     },
     md: {
-      icon: "h-12 w-12",
-      text: "text-2xl",
+      icon: "h-9 w-9 sm:h-12 sm:w-12",
+      text: "text-lg sm:text-2xl",
     },
     lg: {
       icon: "h-16 w-16",
