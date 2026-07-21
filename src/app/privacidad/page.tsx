@@ -7,6 +7,9 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Privacidad - Safe Bite",
   description: "Política de privacidad de Safe Bite.",
+  alternates: {
+    canonical: "https://www.safebite.cl/privacidad",
+  },
 };
 
 export default function PrivacidadPage() {

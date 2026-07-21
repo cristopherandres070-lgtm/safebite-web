@@ -7,6 +7,9 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Términos - Safe Bite",
   description: "Términos de uso de Safe Bite.",
+  alternates: {
+    canonical: "https://www.safebite.cl/terminos",
+  },
 };
 
 export default function TerminosPage() {
